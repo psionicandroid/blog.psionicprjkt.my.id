@@ -1,7 +1,7 @@
 ---
 title: Neural Kernel for RM6785
 description: Custom Kernel for Realme 6/6i(Indian)/6s/7/Narzo/Narzo 20 Pro/Narzo 30 4G (RM6785)
-date: 2024-06-05
+date: 2024-09-02
 slug: KERNEL/RM6785/Neural
 image: main.jpg
 tags:
@@ -16,19 +16,32 @@ for Custom ROM based realmeUI-2.0
 ```
 
 ## Latest Changelog
-* 2024-06-05
-  * Upstreamed Kernel to v4.14.348
+* 2024-09-02
+  * Merge 'latest/7ed6e40' of KernelSU
+  * Reverted kernel version trimming
+  * Restored localversion kernel variants
+  * Disable WALT scheduling
+  * Switched to WeebX Clang 20.0.0
+  * Enabled more -O3 optimizations 
+  * treewide: Reduce inline optimization
+  * Tuned ged_kpi for perf efficiency
+  * Tuned ged_ge for memory efficiency
+  * Tuned max boost groups for better perf
+  * Tuned kernel/sched for optimized latency
+  * Improved sched for Unity-based games (https://paste.crdroid.net/TVOwFq)
+  * treewide: Use power-efficient wq
+  * Disabled more debugging configs
 
 ## Downloads
-* [⬇️ Neural-kernel-RM6785-05062024-b0ba341.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-05062024-b0ba341.zip/download)
-* [⬇️ Neural-kernel-RM6785-05062024-b0ba341-ksu.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-05062024-b0ba341-ksu.zip/download)
-* [⬇️ Neural-kernel-RM6785-05062024-7bdb7b4-ksu-oc.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-05062024-7bdb7b4-ksu-oc.zip/download)
+* [⬇️ Neural-kernel-RM6785-01092024-fcc47a2.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-01092024-fcc47a2.zip/download)
+* [⬇️ Neural-kernel-RM6785-01092024-fcc47a2-ksu.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-01092024-fcc47a2-ksu.zip/download)
+* [⬇️ Neural-kernel-RM6785-01092024-08d3fb1-ksu-oc.zip](https://sourceforge.net/projects/psionicprjkt/files/KERNEL/RM6785/Neural-kernel-RM6785-01092024-08d3fb1-ksu-oc.zip/download)
 
 ```
-FILE: Neural-kernel-RM6785-05062024-b0ba341.zip (Normal/Non-KSU)
-FILE: Neural-kernel-RM6785-05062024-b0ba341-ksu.zip (Inc. KernelSU)
-FILE: Neural-kernel-RM6785-05062024-7bdb7b4-ksu-oc.zip (Inc. KernelSU + Overclock)
-FILESIZE: 23.2 MB
+FILE: Neural-kernel-RM6785-01092024-fcc47a2.zip (Normal/Non-KSU)
+FILE: Neural-kernel-RM6785-01092024-fcc47a2-ksu.zip (Inc. KernelSU)
+FILE: Neural-kernel-RM6785-01092024-08d3fb1-ksu-oc.zip (Inc. KernelSU + Overclock)
+FILESIZE: 27 MB
 ```
 
 ## Info & Sources
@@ -45,6 +58,63 @@ FILESIZE: 23.2 MB
 [psionicprjktchat](https://t.me/psionicprjktchat) | [psionicprjkt channel](https://t.me/psionicprjkt) | [psionicprjktlogs](https://t.me/psionicprjktlogs) managed by [officialputuid](https://t.me/officialputuid)
 
 ## Old Changelog
+* 2024-08-27
+  * Merge '4.14.352' of openela/kernel-lts
+
+* 2024-08-24
+  * Merge '4.14.351' of openela/kernel-lts
+  * Merge 'latest/b2dbaa9' of tiann/KernelSU
+
+* 2024-08-09
+  * Merge '4.14.350' of openela/kernel-lts
+  * Merge 'latest/a94c51c' of tiann/KernelSU
+  * Switch to stock RUI2 kernel timer 
+  * Simply localversion kernel
+
+* 2024-07-26
+  * Merge 'v1.0.1' of tiann/KernelSU
+  * Switch kernel timer to 300 Hz
+  * Refactor & trim kernel version logic
+  * Prevent detection in localversion kernel [Read Notes]
+  * The -ksu suffix has been removed from Neural Kernel versions, details are now in the additional info section: Normal [#1kv], KernelSU [#2kv], KernelSU + OC [#3kv], also added a custom uname override (lv from rui2) to avoid detection
+
+* 2024-07-18
+  * Merge '4.14.349' of openela/kernel-lts
+  * Merge 'latest/e5b6320' of PhoenixKernel/linux
+  * Merge 'latest/c01b462' of tiann/KernelSU
+  * Drop BBRv2 (BBRv1 better)
+  * treewide: Use power efficient wq
+
+* 2024-07-07
+  * Increase aggressive i-opt flags
+  * net/sch: Switch to fq_codel (result (https://docs.google.com/spreadsheets/d/1YzZJkxgij-KARvgwpKd98UVEdgbAynWLq-Y3lxRLkBg/edit))
+  * Added KProfiles v6.0.0 (mode (https://github.com/dakkshesh07/Kprofiles?tab=readme-ov-file#about))
+  * KernelSU: Update state v1.0.0
+  * Reduce thermal trip point
+  * Enable more USB HID game controller support
+
+* 2024-06-16
+  * Increase thermal trip points for perf
+  * Reduce rating of teo governor for battery
+  * Fixed issue with charging animation getting stuck in stock ROM (thanks to @onlyskyie for reporting it)
+
+* 2024-06-14
+  * Implement xHide KSU|Zygisk (Momo happy?)
+  * xHide for KSU|Zygisk|mounted systemless hosts
+  * xHide for init.rc is modified|Device is running a custom ROM
+  * Switch to TEO as the default CPU idle governor
+  * Force enable KALLSYMS_ALL (APacth? not tested)
+  * Allow users to change max swappiness to 200
+  * More optimize subsystems with -O3
+  * Added blu_schedutil CPU governor
+  * Suppressed various log spams
+  * Revert changes power efficient wq
+  * Disable additional config debugging
+  * Reduce latency for better responsiveness
+
+* 2024-06-05
+  * Upstreamed Kernel to v4.14.348
+
 * 2024-06-04
   * Upstreamed Kernel to v4.14.347
 
